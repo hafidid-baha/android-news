@@ -17,6 +17,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="Read Some News"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/design_default_color_primary"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
