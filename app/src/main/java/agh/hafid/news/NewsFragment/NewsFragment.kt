@@ -1,6 +1,7 @@
 package agh.hafid.news.NewsFragment
 
 import agh.hafid.news.R
+import agh.hafid.news.adapters.ArticlesAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +10,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.facebook.shimmer.ShimmerFrameLayout
+import org.json.JSONObject
 
 class NewsFragment : Fragment() {
 
@@ -40,6 +43,7 @@ class NewsFragment : Fragment() {
         viewModel.news.observe(viewLifecycleOwner, Observer { articles->
             Toast.makeText(this.context,"items ${articles.size}",Toast.LENGTH_LONG).show()
             stopShimmer()
+            setUpArticles(articles)
         })
     }
 
@@ -56,6 +60,12 @@ class NewsFragment : Fragment() {
     private fun  stopShimmer(){
         shimmer.stopShimmer()
         shimmer.visibility = View.INVISIBLE
+    }
+
+    private fun setUpArticles(articles:List<JSONObject>){
+        articleRecycler.setHasFixedSize(true)
+        articleRecycler.layoutManager = LinearLayoutManager(this.context)
+        articleRecycler.adapter = ArticlesAdapter(articles)
         articleRecycler.visibility = View.VISIBLE
     }
 

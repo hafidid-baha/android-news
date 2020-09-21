@@ -27,7 +27,7 @@ class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<Article
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val articleItem = items.get(position)
         holder.title.text = articleItem.getString("title");
-        holder.author.text = articleItem.getString("author");
+        holder.author.text = if (articleItem.getString("author").toString() != "")  "BY : "+articleItem.getString("author").toString() else "UNKNOWN";
 
         //Log.d("data", "fetchNews: image "+data.getJSONObject(0).getString("urlToImage"))
     }
