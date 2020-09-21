@@ -30,10 +30,11 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
                 var m:JSONObject = JSONObject()
                 for (i in 0 until data.length()) {
                     articles.add(data.getJSONObject(i))
+
                 }
                 news.value = articles
                 //Log.d("data", "fetchNews: $data")
-                Log.d("data", "fetchNews: $m")
+
             },
             { Log.d("data", "fetchNews: error") }
         )
