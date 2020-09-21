@@ -29,7 +29,7 @@ class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<Article
         val articleItem = items.get(position)
         val imageUrl = articleItem.getString("urlToImage")
         holder.title.text = articleItem.getString("title");
-        holder.author.text = if (articleItem.getString("author").toString() != "")  "BY : "+articleItem.getString("author").toString() else "UNKNOWN";
+        holder.author.text = if (articleItem.getString("author").toString() != "null")  "BY : "+articleItem.getString("author").toString() else "BY : Unknown";
 
         Picasso.get().load(imageUrl).into(holder.image)
 
