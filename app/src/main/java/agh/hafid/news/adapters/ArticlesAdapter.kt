@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.article_item.view.*
 import org.json.JSONObject
 
@@ -26,8 +27,11 @@ class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<Article
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val articleItem = items.get(position)
+        val imageUrl = articleItem.getString("urlToImage")
         holder.title.text = articleItem.getString("title");
         holder.author.text = if (articleItem.getString("author").toString() != "")  "BY : "+articleItem.getString("author").toString() else "UNKNOWN";
+
+        Picasso.get().load(imageUrl).into(holder.image)
 
         //Log.d("data", "fetchNews: image "+data.getJSONObject(0).getString("urlToImage"))
     }
