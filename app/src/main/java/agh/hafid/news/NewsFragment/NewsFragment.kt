@@ -39,6 +39,7 @@ class NewsFragment : Fragment() {
         viewModel.fetchNews()
         viewModel.news.observe(viewLifecycleOwner, Observer { articles->
             Toast.makeText(this.context,"items ${articles.size}",Toast.LENGTH_LONG).show()
+            stopShimmer()
         })
     }
 
@@ -49,7 +50,13 @@ class NewsFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
+        stopShimmer()
+    }
+
+    private fun  stopShimmer(){
         shimmer.stopShimmer()
+        shimmer.visibility = View.INVISIBLE
+        articleRecycler.visibility = View.VISIBLE
     }
 
 }

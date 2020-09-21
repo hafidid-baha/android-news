@@ -41,4 +41,6 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
         queue.add(request)
     }
 
+
+
 }
