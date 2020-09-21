@@ -50,5 +50,7 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    //facebook shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 }
