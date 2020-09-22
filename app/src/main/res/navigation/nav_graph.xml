@@ -25,11 +25,28 @@
         tools:layout="@layout/news_fragment" >
         <action
             android:id="@+id/action_newsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
+            app:destination="@id/articleFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
         android:name="agh.hafid.news.ArticleFragment.ArticleFragment"
         android:label="article_fragment"
-        tools:layout="@layout/article_fragment" />
+        tools:layout="@layout/article_fragment" >
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="titile"
+            app:argType="string" />
+        <argument
+            android:name="content"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+    </fragment>
 </navigation>
