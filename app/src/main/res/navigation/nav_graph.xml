@@ -48,5 +48,24 @@
         <argument
             android:name="date"
             app:argType="string" />
+        <argument
+            android:name="article"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_articleFragment_to_contentFragment"
+            app:destination="@id/contentFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="agh.hafid.news.ContentFragment.ContentFragment"
+        android:label="content_fragment"
+        tools:layout="@layout/content_fragment" >
+        <argument
+            android:name="article"
+            app:argType="string" />
     </fragment>
 </navigation>

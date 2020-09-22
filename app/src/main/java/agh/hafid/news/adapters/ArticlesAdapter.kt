@@ -44,7 +44,8 @@ class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<Article
         holder.card.setOnClickListener{
             val date = articleItem.getString("publishedAt")
             val content = articleItem.getString("content")
-            val action = NewsFragmentDirections.actionNewsFragmentToArticleFragment(imageUrl,title,content,date)
+            val article = articleItem.getString("url")
+            val action = NewsFragmentDirections.actionNewsFragmentToArticleFragment(imageUrl,title,content,date,article)
             it.findNavController().navigate(action)
         }
     }
