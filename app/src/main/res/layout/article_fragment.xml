@@ -40,6 +40,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/articleDate"
+            android:layout_marginTop="20dp"
+            />
+        <Button
+            android:id="@+id/readMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/articleContent"
+            android:layout_marginTop="20dp"
+            style="?attr/materialButtonOutlinedStyle"
+            android:textColor="@color/design_default_color_primary"
+            android:text="Read More"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
