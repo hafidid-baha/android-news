@@ -7,17 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.article_item.view.*
 import org.json.JSONObject
 
 class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val image:ImageView = itemView.findViewById(R.id.articleImage)
         val title:TextView = itemView.findViewById(R.id.articleTitle)
         val author:TextView = itemView.findViewById(R.id.articleAuthor)
+        val card:MaterialCardView = itemView.findViewById(R.id.card)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,8 +36,9 @@ class ArticlesAdapter(var items:List<JSONObject>) : RecyclerView.Adapter<Article
         holder.author.text = if (articleItem.getString("author").toString() != "null")  "BY : "+articleItem.getString("author").toString() else "BY : Unknown";
 
         Picasso.get().load(imageUrl).into(holder.image)
-
-        //Log.d("data", "fetchNews: image "+data.getJSONObject(0).getString("urlToImage"))
+        holder.card.setOnClickListener{
+            Toast.makeText(it.context,"clicked",Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun getItemCount(): Int {

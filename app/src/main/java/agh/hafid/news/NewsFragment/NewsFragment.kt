@@ -41,7 +41,7 @@ class NewsFragment : Fragment() {
 
         viewModel.fetchNews()
         viewModel.news.observe(viewLifecycleOwner, Observer { articles->
-            Toast.makeText(this.context,"items ${articles.size}",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this.context,"items ${articles.size}",Toast.LENGTH_LONG).show()
             stopShimmer()
             setUpArticles(articles)
         })

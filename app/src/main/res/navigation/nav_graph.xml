@@ -22,5 +22,14 @@
         android:id="@+id/newsFragment"
         android:name="agh.hafid.news.NewsFragment.NewsFragment"
         android:label="news_fragment"
-        tools:layout="@layout/news_fragment" />
+        tools:layout="@layout/news_fragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_articleFragment"
+            app:destination="@id/articleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="agh.hafid.news.ArticleFragment.ArticleFragment"
+        android:label="article_fragment"
+        tools:layout="@layout/article_fragment" />
 </navigation>
